@@ -1,6 +1,8 @@
 import { Router, type IRequest } from "itty-router";
 import { corsResponse, getAllowedOrigin } from "@/constants/cors";
 import venueRoutes from "@/routes/venues";
+import franchiseRoutes from "@/routes/franchises";
+import favoriteRoutes from "@/routes/favorites";
 import type { D1Database } from "@cloudflare/workers-types";
 
 export interface Env {
@@ -25,8 +27,10 @@ router.get("/", () => {
   });
 });
 
-// Mount venue routes
+// Mount routes
 router.all("/venues*", venueRoutes.handle);
+router.all("/franchises*", franchiseRoutes.handle);
+router.all("/favorites*", favoriteRoutes.handle);
 
 // 404
 router.all("*", () => {
