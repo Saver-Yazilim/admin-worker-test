@@ -1,0 +1,19 @@
+{
+  "name": "admin-worker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "db:migrate": "wrangler d1 migrations apply admin-db",
+    "db:create": "wrangler d1 create admin-db"
+  },
+  "dependencies": {
+    "itty-router": "^5.0.18"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "typescript": "^5.4.5",
+    "wrangler": "^3.57.0"
+  }
+}
